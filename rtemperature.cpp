@@ -173,7 +173,8 @@ TempView::AttachedToWindow()
 
 	BFont font;
 	GetFont(&font);
-	font.SetSize(9.0f);
+	font.SetSize(11.0f);
+	font.SetFace(B_BOLD_FACE);
 	SetFont(&font);
 
 	Refresh();
@@ -304,10 +305,7 @@ TempView::Draw(BRect updateRect)
 
 	font_height fh;
 	GetFontHeight(&fh);
-	float textWidth = StringWidth(text);
-	float x = bounds.right - textWidth;			// number right-aligned
-	if (x < 9.0f)
-		x = 9.0f;								// never over the thermometer
+	float x = 8.0f;								// directly beside thermometer
 	float y = (bounds.Height() - (fh.ascent + fh.descent)) / 2 + fh.ascent;
 
 	DrawString(text, BPoint(x, y));
